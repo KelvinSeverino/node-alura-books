@@ -8,5 +8,5 @@ Iniciar projeto pelo NodeJs
     node app.js
     
 Instalar modulo para Hot Reload
-    npm install nodemon
-    npm app.js
+    npm install -g nodemon
+    nodemon app.js
