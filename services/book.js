@@ -30,9 +30,19 @@ function updateBook(modifications, id){
     fs.writeFileSync("db.json", JSON.stringify(books))
 }
 
+function destroyBook(id){
+    let books = JSON.parse(fs.readFileSync("db.json"))
+    const indexToRemove = books.findIndex(book => book.id === id)
+
+    books.splice(indexToRemove, 1);
+
+    fs.writeFileSync("db.json", JSON.stringify(books))
+}
+
 module.exports = {
     getAllBooks,
     getBookById,
     storeBook,
-    updateBook
+    updateBook,
+    destroyBook
 }
