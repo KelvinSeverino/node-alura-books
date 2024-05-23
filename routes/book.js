@@ -1,11 +1,10 @@
 const { Router } = require("express")
+const { getBooks } = require("../controllers/book")
 
 const router = Router()
 
 //req = request, res = response
-router.get('/', (req, res) => {
-    res.send("Você fez uma requisição do tipo GET")
-})
+router.get('/', getBooks)
 
 router.post('/', (req, res) => {
     res.send("Você fez uma requisição do tipo POST")
