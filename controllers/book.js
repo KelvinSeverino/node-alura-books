@@ -1,4 +1,4 @@
-const { getAllBooks, getBookById } = require("../services/book")
+const { getAllBooks, getBookById, storeBook } = require("../services/book")
 
 function getBooks(req, res) {
     try {
@@ -21,7 +21,20 @@ function getBook(req, res) {
     }
 }
 
+function insertBook(req, res) {
+    try {
+        const newBook = req.body
+        storeBook(newBook)  
+        res.status(201)
+        res.send("Livro inserido com sucesso!")
+    } catch (error) {        
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
 module.exports = {
     getBooks,
-    getBook
+    getBook,
+    insertBook
 }

@@ -11,7 +11,16 @@ function getBookById(id){
     return bookFilter
 }
 
+function storeBook(newBook){
+    const books = JSON.parse(fs.readFileSync("db.json"))
+
+    const newBooksList = [ ...books, newBook ]
+
+    fs.writeFileSync("db.json", JSON.stringify(newBooksList))
+}
+
 module.exports = {
     getAllBooks,
-    getBookById
+    getBookById,
+    storeBook,
 }
