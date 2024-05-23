@@ -19,8 +19,20 @@ function storeBook(newBook){
     fs.writeFileSync("db.json", JSON.stringify(newBooksList))
 }
 
+function updateBook(modifications, id){
+    let books = JSON.parse(fs.readFileSync("db.json"))
+    const indexUpdated = books.findIndex(book => book.id === id)
+
+    const bookUpdated = { ...books[indexUpdated], ...modifications }
+
+    books[indexUpdated] = bookUpdated
+
+    fs.writeFileSync("db.json", JSON.stringify(books))
+}
+
 module.exports = {
     getAllBooks,
     getBookById,
     storeBook,
+    updateBook
 }
