@@ -1,0 +1,12 @@
+Criar projeto Node
+    npm init
+
+Instalar modulo para API
+    npm install express
+
+Iniciar projeto pelo NodeJs
+    node app.js
+    
+Instalar modulo para Hot Reload
+    npm install nodemon
+    npm app.js
