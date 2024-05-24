@@ -30,9 +30,14 @@ function getBook(req, res) {
 function insertBook(req, res) {
     try {
         const newBook = req.body
-        storeBook(newBook)  
-        res.status(201)
-        res.send("Livro inserido com sucesso!")
+        if(req.body.id && req.body.name){
+            storeBook(newBook)  
+            res.status(201)
+            res.send("Livro inserido com sucesso!")
+        } else {
+            res.status(422)
+            res.send("Verifique os campos enviados!")
+        }
     } catch (error) {        
         res.status(500)
         res.send(error.message)
